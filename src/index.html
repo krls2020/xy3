@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card2: #273449;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #818cf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #1e3a5f 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .sub { color: var(--muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    form { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+    input {
+      flex: 1;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      background: var(--card);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+    }
+    input:focus { border-color: var(--accent); }
+    button {
+      padding: 0.85rem 1.4rem;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    button:hover { opacity: 0.9; }
+    button:disabled { opacity: 0.5; cursor: default; }
+    .msg { color: var(--muted); padding: 1rem 0; }
+    .err { color: #fca5a5; }
+    .hero {
+      background: var(--card);
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      display: none;
+    }
+    .hero-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .place { font-size: 1.3rem; font-weight: 600; }
+    .place small { color: var(--muted); font-weight: 400; }
+    .temp { font-size: 3.4rem; font-weight: 700; line-height: 1; }
+    .icon { font-size: 3.6rem; }
+    .label { color: var(--muted); margin-top: 0.25rem; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.5rem; }
+    .stat { background: var(--card2); border-radius: 12px; padding: 0.85rem; text-align: center; }
+    .stat .k { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stat .v { font-size: 1.15rem; font-weight: 600; margin-top: 0.2rem; }
+    .forecast { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.75rem; }
+    .day {
+      background: var(--card);
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 0.9rem 0.6rem;
+      text-align: center;
+    }
+    .day .dow { color: var(--muted); font-size: 0.82rem; }
+    .day .di { font-size: 1.9rem; margin: 0.35rem 0; }
+    .day .dt { font-weight: 600; font-size: 0.95rem; }
+    .day .dt small { color: var(--muted); font-weight: 400; }
+    .day .dp { color: var(--accent); font-size: 0.78rem; margin-top: 0.25rem; }
+    footer { color: var(--muted); font-size: 0.8rem; margin-top: 2rem; text-align: center; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🌦️ Weather Dashboard</h1>
+    <p class="sub">Aktuální počasí a 5denní předpověď — běží na Bun &amp; Zerops, data z Open-Meteo.</p>
+
+    <form id="form">
+      <input id="city" type="text" placeholder="Zadej město, např. Praha…" autocomplete="off" />
+      <button id="btn" type="submit">Hledat</button>
+    </form>
+
+    <div id="msg" class="msg"></div>
+
+    <div id="hero" class="hero">
+      <div class="hero-top">
+        <div>
+          <div class="place" id="place"></div>
+          <div class="temp" id="temp"></div>
+          <div class="label" id="label"></div>
+        </div>
+        <div class="icon" id="icon"></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="k">Pocitově</div><div class="v" id="apparent"></div></div>
+        <div class="stat"><div class="k">Vlhkost</div><div class="v" id="humidity"></div></div>
+        <div class="stat"><div class="k">Vítr</div><div class="v" id="wind"></div></div>
+      </div>
+    </div>
+
+    <div id="forecast" class="forecast"></div>
+
+    <footer>Postaveno s <a href="https://bun.sh" target="_blank">Bun</a> · nasazeno na
+      <a href="https://zerops.io" target="_blank">Zerops</a> · data
+      <a href="https://open-meteo.com" target="_blank">Open-Meteo</a></footer>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const form = $("form"), msg = $("msg"), hero = $("hero"), forecast = $("forecast");
+    const DOW = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
+
+    async function search(city) {
+      msg.className = "msg";
+      msg.textContent = "Načítám…";
+      $("btn").disabled = true;
+      hero.style.display = "none";
+      forecast.innerHTML = "";
+      try {
+        const res = await fetch("/api/weather?city=" + encodeURIComponent(city));
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Chyba");
+        render(data);
+        msg.textContent = "";
+      } catch (e) {
+        msg.className = "msg err";
+        msg.textContent = "⚠️ " + e.message;
+      } finally {
+        $("btn").disabled = false;
+      }
+    }
+
+    function render(d) {
+      $("place").innerHTML = d.location.name + " <small>" + (d.location.country || "") + "</small>";
+      $("temp").textContent = Math.round(d.current.temperature) + "°C";
+      $("label").textContent = d.current.label;
+      $("icon").textContent = d.current.icon;
+      $("apparent").textContent = Math.round(d.current.apparent) + "°C";
+      $("humidity").textContent = d.current.humidity + " %";
+      $("wind").textContent = Math.round(d.current.windSpeed) + " km/h";
+      hero.style.display = "block";
+
+      forecast.innerHTML = d.daily.map((day) => {
+        const dow = DOW[new Date(day.date).getDay()];
+        return '<div class="day">' +
+          '<div class="dow">' + dow + '</div>' +
+          '<div class="di">' + day.icon + '</div>' +
+          '<div class="dt">' + Math.round(day.tMax) + '° <small>' + Math.round(day.tMin) + '°</small></div>' +
+          (day.precip > 0 ? '<div class="dp">💧 ' + day.precip + ' mm</div>' : '') +
+          '</div>';
+      }).join("");
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const city = $("city").value.trim();
+      if (city) search(city);
+    });
+
+    // Default city on first load
+    $("city").value = "Praha";
+    search("Praha");
+  </script>
+</body>
+</html>
