@@ -31,15 +31,24 @@ uikit/
 │   ├── conflicts-and-scope.md   # prefixes + .uk-scope for embedding
 │   ├── migration.md             # renamed classes / breaking changes
 │   └── components/*.md          # 81 per-component cheat-sheets
-├── patterns/                    # composed, copy-pasteable page recipes
+├── patterns/                    # single-section recipes (from OSS docs)
 │   ├── _index.md
 │   ├── navigation.md            # navbar + mobile off-canvas + sticky
 │   ├── hero-sections.md
 │   ├── cards-and-grids.md
 │   ├── forms.md
 │   └── page-scaffolds.md        # landing page, dashboard shell, docs layout
+├── layouts/                     # full-page composition (from real UIkit-3 pages)
+│   ├── _index.md
+│   ├── layout-principles.md     # ⭐ section rhythm, container emphasis, cadence
+│   ├── marketing-landing.md
+│   ├── pricing.md
+│   ├── feature-showcase.md
+│   ├── social-proof.md
+│   └── content-index.md         # blog / news / portfolio
 └── scripts/
-    └── build-cheatsheets.mjs    # regenerates references/components/* + _index
+    ├── build-cheatsheets.mjs    # regenerates references/components/* + _index
+    └── skeletonize.mjs          # strips a UIkit HTML page to its uk-* skeleton
 ```
 
 ## Design: progressive disclosure, tuned for value-per-token

@@ -32,7 +32,8 @@ click handler — stop. UIkit ships a class or attribute for it.
 | Need | Read | 
 |---|---|
 | **Almost any task** — layout, spacing, the top ~20 components' markup | **`references/quick-ref.md`** (one page, start here) |
-| A whole page **section** (hero, nav+mobile menu, card grid, pricing, dashboard, forms) | **`patterns/<name>.md`** (copy-paste recipes) — see `patterns/_index.md` |
+| A whole page **section** (hero, nav+mobile menu, card grid, forms) | **`patterns/<name>.md`** (copy-paste recipes) — see `patterns/_index.md` |
+| A whole **page** (landing, pricing, blog, dashboard) + how pros compose section rhythm | **`layouts/`** — start with `layouts/layout-principles.md` |
 | A specific component's **full** class/option list | `references/components/<name>.md` |
 | Which component do I even need? | routing table below, then `references/_index.md` (all 81) |
 | The "how/why" of a subsystem | `references/{layout-system,javascript,utilities,theming,icons,setup,accessibility-rtl,conflicts-and-scope,migration}.md` |
@@ -71,7 +72,8 @@ or the file below. Long tail → `references/_index.md`.
 |---|---|
 | Responsive columns / grid | grid + width (`quick-ref.md`) |
 | Nav bar + mobile menu | `patterns/navigation.md` |
-| Hero / landing / dashboard | `patterns/{hero-sections,page-scaffolds}.md` |
+| Hero / single section | `patterns/{hero-sections,page-scaffolds}.md` |
+| Full page (landing, pricing, blog, dashboard) | `layouts/` (rhythm + archetypes) |
 | Card grid | `patterns/cards-and-grids.md` |
 | Forms | `patterns/forms.md` |
 | Modal / dropdown / offcanvas | modal · dropdown · offcanvas |
