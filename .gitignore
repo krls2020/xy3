@@ -1,5 +1,2 @@
 node_modules/
-.bun/
-dist/
-*.log
-.DS_Store
+demos/*.html

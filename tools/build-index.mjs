@@ -128,10 +128,14 @@ const unverified = Object.keys(INDIRECT).filter((c) => {
 const known = [...new Set([...exact, ...declared, ...jsClasses, ...Object.keys(INDIRECT)])].sort();
 
 // Attributes UIkit reads that are not themselves registered components.
-// Components that address their controls through a second attribute declare it
-// as `attrItem` in the bundle (uk-switcher-item, uk-filter-control, uk-slider-item…).
+// Attributes UIkit reads that are not themselves registered components. Both forms
+// are found in the bundle rather than listed by hand — a hand-written list is how
+// `uk-cloak`, which UIkit 3.25 does not have at all, nearly ended up in here.
+//   attrItem: 'uk-switcher-item'      controls that address a component
+//   data(el, 'uk-scrollspy-class')   per-element overrides read straight off the DOM
 for (const m of js.matchAll(/attrItem\s*:\s*["'](uk-[a-z-]+)["']/g)) hookFromSource.add(m[1]);
-const HOOK_ATTRS = [...new Set([...hookFromSource, 'uk-cloak', 'uk-scrollspy-class'])].sort();
+for (const m of js.matchAll(/\bdata\([^,()]+,\s*["'](uk-[a-z-]+)["']\)/g)) hookFromSource.add(m[1]);
+const HOOK_ATTRS = [...hookFromSource].sort();
 
 fs.writeFileSync(OUT, JSON.stringify({
   version, generated_from: 'github.com/uikit/uikit', classes: known, families,
