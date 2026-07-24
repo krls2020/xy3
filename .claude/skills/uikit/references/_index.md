@@ -1,20 +1,20 @@
 # UIkit component index
 
-Full catalog of component cheat-sheets. Each lives at `references/components/<name>.md`. **(JS)** marks an interactive JavaScript component (activated with a `uk-*` attribute).
+Full catalog of component cheat-sheets at `references/components/<name>.md`. **(JS)** marks an interactive JavaScript component.
 
-## Principle references (read these for the "how" and "why")
+## Principle references
 
 | File | Covers |
 |---|---|
-| `setup.md` | CDN/npm install, the required HTML boilerplate, custom builds |
-| `javascript.md` | The `uk-*` attribute system, options, events, programmatic API, Vue/React |
-| `layout-system.md` | Container → Grid → Width → Flex, spacing, breakpoints — how layout works |
-| `utilities.md` | Text, background, transitions, animation, inverse (dark), misc utilities |
-| `theming.md` | Customizing via LESS/SCSS variables and hooks |
-| `icons.md` | SVG icon library, `uk-icon`, custom icons, `uk-svg` |
-| `accessibility-rtl.md` | What UIkit handles automatically + RTL builds |
-| `conflicts-and-scope.md` | Custom prefixes and `.uk-scope` for embedding |
-| `migration.md` | Renamed classes / breaking changes to avoid stale markup |
+| `setup.md` | CDN/npm install, HTML boilerplate, custom builds |
+| `javascript.md` | The `uk-*` attribute system, options, events, API |
+| `layout-system.md` | Container → Grid → Width → Flex, spacing, breakpoints |
+| `utilities.md` | Text, background, transitions, animation, inverse |
+| `theming.md` | LESS/SCSS variables and hooks |
+| `icons.md` | SVG icon library, custom icons |
+| `accessibility-rtl.md` | ARIA handling + RTL builds |
+| `conflicts-and-scope.md` | Prefixes and `.uk-scope` |
+| `migration.md` | Renamed classes / breaking changes |
 
 ---
 

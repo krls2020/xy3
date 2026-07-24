@@ -142,8 +142,12 @@ by category, with a one-line purpose each).
 - **Principle references** (the "how/why", read as needed):
   `setup.md`, `javascript.md`, `layout-system.md`, `utilities.md`, `theming.md`,
   `icons.md`, `accessibility-rtl.md`, `conflicts-and-scope.md`, `migration.md`.
-- **`patterns/`** — composed, multi-component page recipes (hero, dashboard,
-  nav+offcanvas, card grids, forms) distilled from UIkit's own demos.
+- **`patterns/`** — composed, multi-component page recipes distilled from UIkit's
+  own demos. See `patterns/_index.md`; files: `navigation.md` (navbar + mobile
+  off-canvas + sticky), `hero-sections.md`, `cards-and-grids.md`, `forms.md`,
+  `page-scaffolds.md` (landing page, dashboard shell, article/docs layout).
+  **When building a whole page or section, start from a pattern, not a blank
+  file.**
 
 Cheat-sheets are distilled from the official UIkit 3 documentation; class and
 attribute names are taken verbatim from the source, so trust them over memory.
