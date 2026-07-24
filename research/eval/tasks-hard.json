@@ -1,14 +1,158 @@
 [
-{"id":"h01","prompt":"Build a self-contained HTML page with UIkit: a masonry-style photo grid (items of differing heights, packed) where the columns also move at slightly different speeds while scrolling. 3 columns on desktop, 2 on tablet, 1 on phone."},
-{"id":"h02","prompt":"Build a self-contained HTML page with UIkit: a top navigation where the dropdown menus open in a full-width bar that slides down under the navbar (mega-menu style), containing three columns of links each."},
-{"id":"h03","prompt":"Build a self-contained HTML page with UIkit: a horizontally scrollable row of category chips/buttons that fades out at the left and right edges to hint there is more content, and can be dragged with the mouse."},
-{"id":"h04","prompt":"Build a self-contained HTML page with UIkit: a fixed headline and logo overlaying a page that scrolls behind it; the headline text must automatically switch between light and dark depending on whether the section currently behind it is dark or light."},
-{"id":"h05","prompt":"Build a self-contained HTML page with UIkit: an image gallery whose lightbox shows a vertical thumbnail strip for navigation and a counter like '3 / 12'."},
-{"id":"h06","prompt":"Build a self-contained HTML page with UIkit: a project gallery with filter buttons (All / Design / Development / Marketing) and two sort buttons (by name ascending and descending), animating between states."},
-{"id":"h07","prompt":"Build a self-contained HTML page with UIkit: a one-page site with 4 sections and a sticky navigation that highlights the link of the section currently in view, and un-sticks again when the last section ends."},
-{"id":"h08","prompt":"Build a self-contained HTML page with UIkit: a product launch page with a countdown timer to a fixed date showing days, hours, minutes and seconds with labels, which restarts automatically when it reaches zero."},
-{"id":"h09","prompt":"Build a self-contained HTML page with UIkit: a file upload area where files can be dropped or selected, showing an upload progress bar."},
-{"id":"h10","prompt":"Build a self-contained HTML page with UIkit: a testimonial carousel that shows 3 cards at a time on desktop, 1 on mobile, advances a whole set at a time, autoplays, and keeps the active card centred."},
-{"id":"h11","prompt":"Build a self-contained HTML page with UIkit: a settings form with a custom-styled file picker button, a custom-styled select that looks like a link, a range slider, and large radio buttons and checkboxes."},
-{"id":"h12","prompt":"Build a self-contained HTML page with UIkit: a hero that fills the viewport minus the navbar height on desktop but is only auto-height on phones, followed by a section of equal-height feature boxes."}
+ {
+  "id": "h01",
+  "prompt": "Build a self-contained HTML page with UIkit: a masonry-style photo grid (items of differing heights, packed) where the columns also move at slightly different speeds while scrolling. 3 columns on desktop, 2 on tablet, 1 on phone.",
+  "requires": [
+   {
+    "re": "uk-grid=\"[^\"]*masonry",
+    "why": "uk-grid=\"masonry: true\""
+   },
+   {
+    "re": "uk-grid=\"[^\"]*parallax",
+    "why": "uk-grid parallax option"
+   }
+  ]
+ },
+ {
+  "id": "h02",
+  "prompt": "Build a self-contained HTML page with UIkit: a top navigation where the dropdown menus open in a full-width bar that slides down under the navbar (mega-menu style), containing three columns of links each.",
+  "requires": [
+   {
+    "re": "uk-(dropnav|navbar)=\"[^\"]*dropbar",
+    "why": "dropbar: true on uk-dropnav/uk-navbar"
+   }
+  ]
+ },
+ {
+  "id": "h03",
+  "prompt": "Build a self-contained HTML page with UIkit: a horizontally scrollable row of category chips/buttons that fades out at the left and right edges to hint there is more content, and can be dragged with the mouse.",
+  "requires": [
+   {
+    "re": "uk-overflow-fade",
+    "why": "Overflow Fade component"
+   }
+  ]
+ },
+ {
+  "id": "h04",
+  "prompt": "Build a self-contained HTML page with UIkit: a fixed headline and logo overlaying a page that scrolls behind it; the headline text must automatically switch between light and dark depending on whether the section currently behind it is dark or light.",
+  "requires": [
+   {
+    "re": "uk-inverse",
+    "why": "Inverse component (uk-inverse)"
+   }
+  ]
+ },
+ {
+  "id": "h05",
+  "prompt": "Build a self-contained HTML page with UIkit: an image gallery whose lightbox shows a vertical thumbnail strip for navigation and a counter like '3 / 12'.",
+  "requires": [
+   {
+    "re": "uk-lightbox=\"[^\"]*nav:\\s*thumbnav",
+    "why": "lightbox nav: thumbnav"
+   },
+   {
+    "re": "uk-lightbox=\"[^\"]*counter",
+    "why": "lightbox counter: true"
+   }
+  ]
+ },
+ {
+  "id": "h06",
+  "prompt": "Build a self-contained HTML page with UIkit: a project gallery with filter buttons (All / Design / Development / Marketing) and two sort buttons (by name ascending and descending), animating between states.",
+  "requires": [
+   {
+    "re": "uk-filter=",
+    "why": "Filter component"
+   },
+   {
+    "re": "uk-filter-control=\"[^\"]*sort:",
+    "why": "filter-control sort: attribute"
+   }
+  ]
+ },
+ {
+  "id": "h07",
+  "prompt": "Build a self-contained HTML page with UIkit: a one-page site with 4 sections and a sticky navigation that highlights the link of the section currently in view, and un-sticks again when the last section ends.",
+  "requires": [
+   {
+    "re": "uk-scrollspy-nav",
+    "why": "Scrollspy Nav component"
+   },
+   {
+    "re": "uk-sticky=\"[^\"]*end:",
+    "why": "sticky end: option"
+   }
+  ]
+ },
+ {
+  "id": "h08",
+  "prompt": "Build a self-contained HTML page with UIkit: a product launch page with a countdown timer to a fixed date showing days, hours, minutes and seconds with labels, which restarts automatically when it reaches zero.",
+  "requires": [
+   {
+    "re": "uk-countdown=",
+    "why": "Countdown component"
+   },
+   {
+    "re": "uk-countdown-(days|seconds)",
+    "why": "countdown unit wrappers"
+   },
+   {
+    "re": "uk-countdown=\"[^\"]*reload",
+    "why": "countdown reload: true"
+   }
+  ]
+ },
+ {
+  "id": "h09",
+  "prompt": "Build a self-contained HTML page with UIkit: a file upload area where files can be dropped or selected, showing an upload progress bar.",
+  "requires": [
+   {
+    "re": "uk-upload",
+    "why": "Upload component"
+   }
+  ]
+ },
+ {
+  "id": "h10",
+  "prompt": "Build a self-contained HTML page with UIkit: a testimonial carousel that shows 3 cards at a time on desktop, 1 on mobile, advances a whole set at a time, autoplays, and keeps the active card centred.",
+  "requires": [
+   {
+    "re": "uk-slider=\"[^\"]*sets",
+    "why": "slider sets: true"
+   },
+   {
+    "re": "uk-slider=\"[^\"]*center",
+    "why": "slider center: true"
+   }
+  ]
+ },
+ {
+  "id": "h11",
+  "prompt": "Build a self-contained HTML page with UIkit: a settings form with a custom-styled file picker button, a custom-styled select that looks like a link, a range slider, and large radio buttons and checkboxes.",
+  "requires": [
+   {
+    "re": "uk-form-custom",
+    "why": "Form Custom for file/select"
+   },
+   {
+    "re": "uk-range",
+    "why": "uk-range class"
+   }
+  ]
+ },
+ {
+  "id": "h12",
+  "prompt": "Build a self-contained HTML page with UIkit: a hero that fills the viewport minus the navbar height on desktop but is only auto-height on phones, followed by a section of equal-height feature boxes.",
+  "requires": [
+   {
+    "re": "uk-height-viewport",
+    "why": "Height Viewport component"
+   },
+   {
+    "re": "uk-grid-match|uk-card-body",
+    "why": "equal-height mechanism"
+   }
+  ]
+ }
 ]
