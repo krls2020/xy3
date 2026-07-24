@@ -1,22 +1,18 @@
 # Container
-> This component allows you to align and center your page content.  ·  Category: **Layout**
-
-<sub>Source: [getuikit.com/docs/container](https://getuikit.com/docs/container) · demo: `tests/container.html`</sub>
-
-## Usage
+> This component allows you to align and center your page content.  ·  Layout
 
 Add the `.uk-container` class to a block element to give it a max-width and wrap the main content of your website. The element will be centered and have padding on the sides, that adapts automatically for large screens.
 
 **Note** The padding of nested containers will be removed to avoid unnecessary spacing.
 
-## Classes & modifiers
+## Classes
 
-| Class                  | Description                                                                                                    |
-|------------------------|----------------------------------------------------------------------------------------------------------------|
-| `.uk-container-xsmall` | Add this class for a xsmall container.                                                                         |
-| `.uk-container-small`  | Add this class for a small container.                                                                          |
-| `.uk-container-large`  | Add this class for a large container.                                                                          |
-| `.uk-container-xlarge` | Add this class for a xlarge container.                                                                         |
+| Class | Description |
+|---|---|
+| `.uk-container-xsmall` | Add this class for a xsmall container. |
+| `.uk-container-small` | Add this class for a small container. |
+| `.uk-container-large` | Add this class for a large container. |
+| `.uk-container-xlarge` | Add this class for a xlarge container. |
 | `.uk-container-expand` | Add this class, if you do not want to limit the container width but still want the dynamic horizontal padding. |
 
 ## Markup
@@ -24,7 +20,3 @@ Add the `.uk-container` class to a block element to give it a max-width and wrap
 ```html
 <div class="uk-container"></div>
 ```
-
-## See also
-
-[section](section.md)

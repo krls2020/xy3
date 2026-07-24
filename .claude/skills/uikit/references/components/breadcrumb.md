@@ -1,13 +1,9 @@
 # Breadcrumb
-> Create breadcrumbs to show users their location within a website.  ·  Category: **Navigation**
+> Create breadcrumbs to show users their location within a website.  ·  Navigation
 
-<sub>Source: [getuikit.com/docs/breadcrumb](https://getuikit.com/docs/breadcrumb) · demo: `tests/breadcrumb.html`</sub>
+The Breadcrumb component consists of links, which are aligned side by side and separated by a divider. Add the `.uk-breadcrumb` class to a `<ul>` element to define the component. Use `<a>` elements as breadcrumb items within the list. An active state is automatically applied to the last `<li>` element.
 
-## Usage
-
-The Breadcrumb component consists of links, which are aligned side by side and separated by a divider. Add the `.uk-breadcrumb` class to a `` element to define the component. Use `` elements as breadcrumb items within the list. An active state is automatically applied to the last `` element.
-
-To add list items without a link, use a `` element instead of an ``. Alternatively, disable an `` element by adding the `.uk-disabled` class to the `` element and remove the `href` attribute from the anchor to make it inaccessible through keyboard navigation.
+To add list items without a link, use a `<span>` element instead of an `<a>`. Alternatively, disable an `<a>` element by adding the `.uk-disabled` class to the `<li>` element and remove the `href` attribute from the anchor to make it inaccessible through keyboard navigation.
 
 ## Markup
 
@@ -18,4 +14,3 @@ To add list items without a link, use a `` element instead of an ``. Alternative
     <li><span></span></li>
 </ul>
 ```
-

@@ -1,35 +1,27 @@
 # Off-canvas
-> Create an off-canvas sidebar that slides in and out of the page, which is perfect for creating mobile navigations.  ·  Category: **Interactive**  ·  JS component
+> Create an off-canvas sidebar that slides in and out of the page, which is perfect for creating mobile navigations.  ·  Interactive · JS
 
-<sub>Source: [getuikit.com/docs/offcanvas](https://getuikit.com/docs/offcanvas) · demo: `tests/offcanvas.html`</sub>
+To apply this component, add the `uk-offcanvas` attribute to a parent `<div>` element and use the following classes.
 
-## Usage
+You can use any element to toggle an off-canvas sidebar. To enable the necessary JavaScript, add the `uk-toggle` attribute. An `<a>` element needs to be linked to the id of the off-canvas container. If you are using another element, like a button, just add the `uk-toggle="target: #ID"` attribute to target the id of the off-canvas container.
 
-To apply this component, add the `uk-offcanvas` attribute to a parent `` element and use the following classes.
+## Classes
 
-You can use any element to toggle an off-canvas sidebar. To enable the necessary JavaScript, add the `uk-toggle` attribute. An `` element needs to be linked to the id of the off-canvas container. If you are using another element, like a button, just add the `uk-toggle="target: #ID"` attribute to target the id of the off-canvas container.
-
-## Classes & modifiers
-
-| Class                 | Description                                                                                                                          |
-|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `.uk-offcanvas-bar`   | Add this class to a child `<div>` element.                                                                                           |
+| Class | Description |
+|---|---|
+| `.uk-offcanvas-bar` | Add this class to a child `<div>` element. |
 | `.uk-offcanvas-close` | Add this class and the `uk-close` attribute to an `<a>` or `<button>` element to create a close button and enable its functionality. |
 
-## JavaScript
+## JS — attr `uk-offcanvas="…"` · api `UIkit.offcanvas(el, opts)`
 
-Activate with the `uk-offcanvas` attribute (no JS needed). Programmatic: `UIkit.offcanvas(element, options)`.
-
-**Component options** (set in the attribute, e.g. `uk-offcanvas="option: value"`):
-
-| Option      | Value   | Default | Description                                                                                                                                               |
-|-------------|---------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mode`      | String  | `slide` | Off-canvas animation mode (`slide`, `reveal`, `push` or `none`).                                                                                           |
-| `flip`      | Boolean | `false` | Flip off-canvas to the right side.                                                                                                                        |
-| `overlay`   | Boolean | `false` | Display the off-canvas together with an overlay.                                                                                                          |
-| `esc-close` | Boolean | `true`  | Close the off-canvas when the _Esc_ key is pressed.                                                                                                       |
-| `bg-close`  | Boolean | `true`  | Close the off-canvas when the background is clicked.                                                                                                      |
-| `container` | String  | `false` | Define a target container via a selector to specify where the off-canvas should be appended in the DOM. Setting it to `false` will prevent this behavior. |
+| Option | Default | Description |
+|---|---|---|
+| `mode` | `slide` | Off-canvas animation mode (`slide`, `reveal`, `push` or `none`). |
+| `flip` | `false` | Flip off-canvas to the right side. |
+| `overlay` | `false` | Display the off-canvas together with an overlay. |
+| `esc-close` | `true` | Close the off-canvas when the _Esc_ key is pressed. |
+| `bg-close` | `true` | Close the off-canvas when the background is clicked. |
+| `container` | `false` | Define a target container via a selector to specify where the off-canvas should be appended in the DOM. Setting it to `false` will prevent this behavior. |
 
 ## Markup
 
@@ -53,7 +45,3 @@ Activate with the `uk-offcanvas` attribute (no JS needed). Programmatic: `UIkit.
 
 </body>
 ```
-
-## See also
-
-[nav](nav.md)

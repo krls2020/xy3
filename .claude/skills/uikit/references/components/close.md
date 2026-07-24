@@ -1,11 +1,7 @@
 # Close
-> Create a close icon that can be combined with different components.  ·  Category: **Content**
+> Create a close icon that can be combined with different components.  ·  Content
 
-<sub>Source: [getuikit.com/docs/close](https://getuikit.com/docs/close) · demo: `tests/close.html`</sub>
-
-## Usage
-
-To apply this component, add the `uk-close` attribute to an `` or `` element.
+To apply this component, add the `uk-close` attribute to an `<a>` or `<button>` element.
 
 ## Markup
 
@@ -14,7 +10,3 @@ To apply this component, add the `uk-close` attribute to an `` or `` element.
 
 <a href="" uk-close></a>
 ```
-
-## See also
-
-[alert](alert.md) · [drop](drop.md) · [modal](modal.md)

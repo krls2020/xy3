@@ -1,9 +1,5 @@
 # Description list
-> Easily create nice looking description lists, which come in different styles.  ·  Category: **Content**
-
-<sub>Source: [getuikit.com/docs/description-list](https://getuikit.com/docs/description-list) · demo: `tests/description-list.html`</sub>
-
-## Usage
+> Easily create nice looking description lists, which come in different styles.  ·  Content
 
 Add the `.uk-description-list` class to display terms and descriptions below each other.
 
@@ -15,4 +11,3 @@ Add the `.uk-description-list` class to display terms and descriptions below eac
     <dd></dd>
 </dl>
 ```
-

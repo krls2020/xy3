@@ -1,18 +1,14 @@
 # Dotnav
-> Create dot navigation to operate slideshows or to scroll to different page sections.  ·  Category: **Navigation**
-
-<sub>Source: [getuikit.com/docs/dotnav](https://getuikit.com/docs/dotnav) · demo: `tests/dotnav.html`</sub>
-
-## Usage
+> Create dot navigation to operate slideshows or to scroll to different page sections.  ·  Navigation
 
 To create a navigation with dots, use the following classes. This component is built with Flexbox. So to align a dotnav, you can use [Flex component](flex.md).
 
-## Classes & modifiers
+## Classes
 
-| Class        | Description                                                                                                         |
-|--------------|---------------------------------------------------------------------------------------------------------------------|
+| Class | Description |
+|---|---|
 | `.uk-dotnav` | Add this class to a `<ul>` element to define the Dotnav component. Use `<a>` elements as nav items within the list. |
-| `.uk-active` | Add this class to a list item to apply an active state.                                                             |
+| `.uk-active` | Add this class to a list item to apply an active state. |
 
 ## Markup
 
@@ -22,7 +18,3 @@ To create a navigation with dots, use the following classes. This component is b
     <li><a href=""></a></li>
 </ul>
 ```
-
-## See also
-
-[flex](flex.md) · [slideshow](slideshow.md) · [position](position.md) · [inverse](inverse.md)

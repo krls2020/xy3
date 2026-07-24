@@ -1,22 +1,18 @@
 # Comment
-> Includes styles for comments, for example for a blog section on your site.  ·  Category: **Content**
-
-<sub>Source: [getuikit.com/docs/comment](https://getuikit.com/docs/comment) · demo: `tests/comment.html`</sub>
-
-## Usage
+> Includes styles for comments, for example for a blog section on your site.  ·  Content
 
 The Comment component consists of the comment itself, a comment header, including an avatar, a title and meta text, and a comment body.
 
-## Classes & modifiers
+## Classes
 
-| Class                | Description                                                                        |
-|----------------------|------------------------------------------------------------------------------------|
-| `.uk-comment`        | Add this class to define the Comment component.                                    |
-| `.uk-comment-body`   | Add this class to create a comment body.                                           |
-| `.uk-comment-header` | Add this class to create a comment header.                                         |
-| `.uk-comment-title`  | Add this class to a heading to create a comment title.                             |
-| `.uk-comment-meta`   | Add this class to create meta text about your comment, e.g. a [subnav](subnav.md). |
-| `.uk-comment-avatar` | Add this class to an `<img>` element to create an avatar for the comment author.   |
+| Class | Description |
+|---|---|
+| `.uk-comment` | Add this class to define the Comment component. |
+| `.uk-comment-body` | Add this class to create a comment body. |
+| `.uk-comment-header` | Add this class to create a comment header. |
+| `.uk-comment-title` | Add this class to a heading to create a comment title. |
+| `.uk-comment-meta` | Add this class to create meta text about your comment, e.g. a [subnav](subnav.md). |
+| `.uk-comment-avatar` | Add this class to an `<img>` element to create an avatar for the comment author. |
 
 ## Markup
 
@@ -30,7 +26,3 @@ The Comment component consists of the comment itself, a comment header, includin
     <div class="uk-comment-body"></div>
 </article>
 ```
-
-## See also
-
-[subnav](subnav.md)

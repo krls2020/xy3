@@ -19,7 +19,8 @@ uikit/
 ├── SKILL.md                     # lean always-loaded core: mental model, golden
 │                                #   rules, routing table, anti-patterns, nav
 ├── references/
-│   ├── _index.md                # catalog of all 81 components by category
+│   ├── quick-ref.md             # ⭐ one-page 80% cheat: layout + top-20 markup
+│   ├── _index.md                # long-tail router: all 81 components by category
 │   ├── setup.md                 # install + HTML boilerplate
 │   ├── javascript.md            # the uk-* attribute system + JS API
 │   ├── layout-system.md         # Container → Grid → Width → Flex + spacing
@@ -41,13 +42,21 @@ uikit/
     └── build-cheatsheets.mjs    # regenerates references/components/* + _index
 ```
 
-## Design: progressive disclosure
+## Design: progressive disclosure, tuned for value-per-token
 
-`SKILL.md` stays small (it's loaded into context on every trigger) and carries
-only the **principles** — how UIkit works and how to approach a build. The bulk
-of the **facts** (~95k words of documentation) lives in `references/`, which the
-agent opens only when needed. This keeps the agent both well-principled and
-well-informed without flooding the context window.
+`SKILL.md` stays tiny (~800 tokens; loaded on every trigger) and carries only the
+**principles** + a router. The **facts** (~35k words across `references/`) load
+only when needed. Read order for the consuming agent:
+
+1. `references/quick-ref.md` — one dense page (layout + spacing + top ~20
+   components' markup) that answers most tasks in a single read.
+2. `patterns/<name>.md` — copy-paste recipes for whole page sections.
+3. `references/components/<name>.md` — a component's full option list (cold).
+
+The component cheat-sheets are compressed (alignment whitespace collapsed,
+provenance/boilerplate stripped, option tables trimmed, pure-breakpoint rows
+folded into a `@s @m @l @xl` note) — ~46% smaller than the raw doc tables with
+**zero** class/attribute names lost.
 
 ## Provenance & accuracy
 
