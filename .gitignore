@@ -1,2 +1,6 @@
 node_modules/
-demos/*.html
+
+# Third-party demo material: kept local, never committed. See demos/HANDOFF.md.
+demos/*
+!demos/README.md
+!demos/HANDOFF.md

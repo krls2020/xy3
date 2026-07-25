@@ -13,12 +13,28 @@ import { parse } from '../.claude/skills/uikit/lib/parse.mjs';
 const dirs = process.argv.slice(2);
 if (!dirs.length) throw new Error('usage: mine-layouts.mjs <dir…>');
 
-const files = dirs.flatMap((d) => {
-  const st = fs.statSync(d);
-  if (st.isFile()) return [d];
-  return fs.readdirSync(d).filter((f) => /\.(html?|svelte|vue|twig|php)$/i.test(f)).map((f) => path.join(d, f));
-});
-if (!files.length) { console.log('no pages found — drop .html files in and run again'); process.exit(0); }
+// Saved pages arrive as one folder per demo, each with its own _files/ asset dump
+// alongside screenshots. Walk the tree and take only the markup.
+const PAGE = /\.(html?|svelte|vue|twig|php)$/i;
+const SKIP = /^(node_modules|\.git|__MACOSX)$/;
+const IMAGE = /\.(png|jpe?g|webp|avif|gif|pdf)$/i;
+
+let images = 0;
+function walk(target) {
+  const st = fs.statSync(target);
+  if (st.isFile()) {
+    if (IMAGE.test(target)) images++;
+    return PAGE.test(target) ? [target] : [];
+  }
+  return fs.readdirSync(target).flatMap((entry) => (SKIP.test(entry) ? [] : walk(path.join(target, entry))));
+}
+const files = dirs.flatMap(walk);
+
+if (!files.length) {
+  console.log('No saved pages found. This tool reads markup — see demos/HANDOFF.md for what to drop in.');
+  if (images) console.log(`(${images} images are here, but screenshots have to be read by an agent, not mined.)`);
+  process.exit(0);
+}
 
 const bundles = new Map();   // uk-* classes co-occurring on one element
 const sequences = new Map(); // section-level rhythm, page by page
@@ -50,7 +66,7 @@ const show = (title, m, n) => {
   for (const [k, c] of top(m, n)) console.log(`${String(c).padStart(4)}  ${k}`);
 };
 
-console.log(`mined ${files.length} pages`);
+console.log(`mined ${files.length} pages` + (images ? `; ${images} screenshots left for an agent to read` : ''));
 show('recurring class bundles', bundles, 40);
 show('recurring parent > child structures', nesting, 25);
 show('section rhythm, page by page', sequences, 15);
